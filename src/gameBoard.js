@@ -116,15 +116,27 @@ const columnLetters = {
 };
 
 const GameBoard = (sizeX, sizeY) => {
+  // Check if sizeX and sizeY are truthy and numeric
+  if (
+    !sizeX ||
+    !Number.isInteger(sizeX) ||
+    !sizeY ||
+    !Number.isInteger(sizeY)
+  ) {
+    // Validation failed
+    return undefined;
+  }
+  const x = Math.min(Math.max(sizeX, 2), 100);
+  const y = Math.min(Math.max(sizeY, 2), 100);
+
   // Create board array and initialize with position and taken values
   const board = [];
-  for (let i = 0; i < sizeX; i += 1) {
+  for (let i = 0; i < x; i += 1) {
     // For every board value create an array for that column's spots
     const column = [];
     board[i] = column;
-    let position = `${columnLetters.i}`;
-    for (let j = 0; j < sizeY; j += 1) {
-      position += `${j + 1}`;
+    for (let j = 0; j < y; j += 1) {
+      const position = `${columnLetters[i]}${j + 1}`;
       column[j] = Spot(position, false);
     }
   }
