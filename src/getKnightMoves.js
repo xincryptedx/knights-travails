@@ -5,7 +5,7 @@
    movement rules to calculate the new positions. 
 */
 // Array of moves a knight can make
-const moves = {
+const knightMoves = {
   right1up2: [1, 2],
   left1up2: [-1, 2],
   right1down2: [1, -2],
@@ -14,4 +14,11 @@ const moves = {
   left2up1: [-2, 1],
   right2down1: [2, -1],
   left2down1: [-2, -1],
+};
+
+const getKnightMoves = (position, board) => {
+  // Create root node that stores postion value
+  // Check that moves from position land invalid areas
+  // If that move is valid, add a reference to it to current node and getKnightMoves from it
+  // Return tree of moves
 };
