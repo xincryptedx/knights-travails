@@ -5,10 +5,10 @@ import "./style.css";
    Each square can be empty or occupied and has a position value.
    A1 is the bottom left corner, H8 is the upper right.
 */
-const Spot = () => {
+const Spot = (position = null, taken = false) => {
   const spotObject = {
-    position: null,
-    taken: false,
+    position,
+    taken,
   };
   return spotObject;
 };
