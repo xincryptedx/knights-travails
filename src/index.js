@@ -1,43 +1,6 @@
 import "./style.css";
+import GameBoard from "./gameBoard";
 
-// Create the game board
-/* Function that crates 2d array for game board. 8x8 grid.
-   Each square can be empty or occupied and has a position value.
-   A1 is the bottom left corner, H8 is the upper right.
-*/
-const Spot = (position = null, taken = false) => {
-  const spotObject = {
-    position,
-    taken,
-  };
-  return spotObject;
-};
-
-const columnLetters = {
-  0: "A",
-  1: "B",
-  2: "C",
-  3: "D",
-  4: "E",
-  5: "F",
-  6: "G",
-  7: "H"
-}
-
-const GameBoard = (sizeX, sizeY) => {
-  // Create board array and initialize with position and taken values
-  const board = [];
-  for (let i = 0; i < sizeX; i += 1) {
-    // For every board value create an array for that column's spots
-    const column = [];
-    board[i] = column;
-    for (let i = 0; i < sizeY; i += 1) {
-      column[i] =
-    }
-  }
-
-  return board;
-};
 // Generate possible moves array
 /* Function that takes knight position as input and returns an array of 
    all possible valid moves for the knight from that position. Ensure that
@@ -62,3 +25,6 @@ const GameBoard = (sizeX, sizeY) => {
 // Output the shortest path
 /* Output array of all positions visited along shortest path
  */
+
+// Testing in browser stuff
+window.createBoard = GameBoard;
