@@ -16,9 +16,22 @@ const knightMoves = {
   left2down1: [-2, -1],
 };
 
-const getKnightMoves = (position, board) => {
-  // Create root node that stores postion value
+const MoveNode = (position = null) => {
+  const newMove = {
+    position,
+  };
+  return newMove;
+};
+
+const getKnightMovesInternal = (currentNode, board) => {
   // Check that moves from position land invalid areas
   // If that move is valid, add a reference to it to current node and getKnightMoves from it
-  // Return tree of moves
+};
+
+const getKnightMoves = (position, board) => {
+  // Create root node that stores postion value
+  const rootNode = MoveNode(position);
+  getKnightMovesInternal(rootNode, board);
+  // Return root of tree
+  return rootNode;
 };
