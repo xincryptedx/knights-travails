@@ -115,7 +115,7 @@ const columnLetters = {
   99: "CV",
 };
 
-const GameBoard = (sizeX, sizeY) => {
+const GameBoard = (sizeX = 8, sizeY = 8) => {
   // Check if sizeX and sizeY are truthy and numeric
   if (
     !sizeX ||
