@@ -126,6 +126,13 @@ const GameBoard = (sizeX, sizeY) => {
     // Validation failed
     return undefined;
   }
+  // Warn if params out of valid range
+  if (sizeX < 2 || sizeX > 100 || sizeY < 2 || sizeY > 100) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      "Parameters not within accepted values. Min 2, max 100. Clamping values..."
+    );
+  }
   const x = Math.min(Math.max(sizeX, 2), 100);
   const y = Math.min(Math.max(sizeY, 2), 100);
 
