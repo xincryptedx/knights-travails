@@ -1,12 +1,6 @@
 import "./style.css";
 import GameBoard from "./gameBoard";
 
-// Generate possible moves array
-/* Function that takes knight position as input and returns an array of 
-   all possible valid moves for the knight from that position. Ensure that
-   the moves stay within the bounds of the chessboard. You can use the knight's 
-   movement rules to calculate the new positions. 
-*/
 // Use BFS to find shortest path to target while tracking explored nodes (queue system needed)
 /* -Create a queue to store the positions to be explored.
    -Create a separate 2D array to keep track of the visited positions.
