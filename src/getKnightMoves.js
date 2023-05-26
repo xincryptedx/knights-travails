@@ -23,15 +23,15 @@ const MoveNode = (position = null) => {
   return newMove;
 };
 
-const getKnightMovesInternal = (currentNode, board) => {
+const buildMoveTreeRecursively = (currentNode, board) => {
   // Check that moves from position land invalid areas
   // If that move is valid, add a reference to it to current node and getKnightMoves from it
 };
 
-const getKnightMoves = (position, board) => {
+const buildKnightMoveTree = (position, board) => {
   // Create root node that stores postion value
   const rootNode = MoveNode(position);
-  getKnightMovesInternal(rootNode, board);
+  buildMoveTreeRecursively(rootNode, board);
   // Return root of tree
   return rootNode;
 };
