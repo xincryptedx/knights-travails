@@ -13,12 +13,27 @@ const Spot = () => {
   return spotObject;
 };
 
+const columnLetters = {
+  0: "A",
+  1: "B",
+  2: "C",
+  3: "D",
+  4: "E",
+  5: "F",
+  6: "G",
+  7: "H"
+}
+
 const GameBoard = (sizeX, sizeY) => {
   // Create board array and initialize with position and taken values
   const board = [];
   for (let i = 0; i < sizeX; i += 1) {
     // For every board value create an array for that column's spots
-    board[i] = [];
+    const column = [];
+    board[i] = column;
+    for (let i = 0; i < sizeY; i += 1) {
+      column[i] =
+    }
   }
 
   return board;
