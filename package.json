@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/xincryptedx/knights-travails/issues"
   },
-  "homepage": "https://github.com/xincryptedx/knights-travails#readme"
+  "homepage": "https://github.com/xincryptedx/knights-travails#readme",
+  "devDependencies": {
+    "eslint": "^8.41.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
+  }
 }
