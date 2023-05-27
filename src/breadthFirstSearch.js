@@ -27,7 +27,7 @@ const bfs = (root, propName, targetValue) => {
       }
     });
     // If the target value is found at the node, return that node
-    if (q[0][propName] === targetValue) {
+    if (arraysContainSameElements(q[0][propName], targetValue)) {
       return q[0];
     }
     // Remove the first item in the queue
