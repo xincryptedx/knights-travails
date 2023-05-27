@@ -1,3 +1,4 @@
+// Helper method for comparing array values
 const arraysContainSameElements = (arr1, arr2) => {
   if (arr1.length !== arr2.length) {
     return false;
@@ -37,7 +38,7 @@ const bfsPath = (root, propName, targetValue) => {
     });
     // If the target value is found at the node, return visited nodes path
     if (arraysContainSameElements(node[propName], targetValue)) {
-      return path;
+      return `${path}, [${node[propName][0]}, ${node[propName][1]}]`;
     }
   }
   return null;
