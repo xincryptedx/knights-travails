@@ -23,6 +23,24 @@ const MoveNode = (position = null) => {
   return newMove;
 };
 
+const isMoveValid = (move, position, board) => {
+  // "Do the move" to get end position
+  const endPosition = [position[0] + move[0], position[1] + move[1]];
+  // Return false if to bottom or left of board
+  if (endPosition[0] < 0 || endPosition[1] < 0) {
+    return false;
+  }
+  // Return false if to top or right of board
+  if (
+    endPosition[0] > board.length - 1 ||
+    endPosition[1] > board[0].length - 1
+  ) {
+    return false;
+  }
+  // Else return true
+  return true;
+};
+
 const buildMoveTreeRecursively = (currentNode, board) => {
   // Check that moves from position land invalid areas
   // If that move is valid, add a reference to it to current node and getKnightMoves from it
