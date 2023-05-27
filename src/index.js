@@ -23,4 +23,6 @@ import KnightMoves from "./getKnightMoves";
 
 // Testing in browser stuff
 window.createBoard = GameBoard;
+window.myBoard = GameBoard();
+
 window.getMoveTree = KnightMoves;
