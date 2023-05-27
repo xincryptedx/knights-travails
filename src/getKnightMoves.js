@@ -63,7 +63,7 @@ const buildMoveTreeRecursively = (currentNode, board, visitedSpots) => {
       visitedSpots
     );
     if (validatedMove) {
-      console.log(`Checking move: ${key}... Validated move: ${validatedMove}`);
+      // console.log(`Checking move: ${key}... Validated move: ${validatedMove}`);
       const newChildNode = MoveNode(validatedMove);
       node[key] = newChildNode;
     }
@@ -80,8 +80,8 @@ const buildKnightMoveTree = (position, board) => {
   const rootNode = MoveNode(position);
   // Create array to store visited positions
   const visitedSpots = [board[rootNode.position[0]][rootNode.position[1]]];
-  console.log(`Building tree off root node:`);
-  console.log(rootNode);
+  // console.log(`Building tree off root node:`);
+  // console.log(rootNode);
   buildMoveTreeRecursively(rootNode, board, visitedSpots);
   // Return root of tree
   return rootNode;

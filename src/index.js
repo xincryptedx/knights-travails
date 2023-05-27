@@ -22,6 +22,24 @@ import KnightMoves from "./getKnightMoves";
  */
 
 // Testing in browser stuff
+function printTreeStructure(rootNode, indent = "") {
+  // Print the current node
+  console.log(`${indent}|-- ${rootNode.position}`);
+
+  // Get the keys of the node excluding 'position'
+  const childKeys = Object.keys(rootNode).filter((key) => key !== "position");
+
+  // Recursively print the child nodes
+  childKeys.forEach((key, index) => {
+    const child = rootNode[key];
+    const isLastChild = index === childKeys.length - 1;
+    const childIndent = indent + (isLastChild ? "    " : "|   ");
+    printTreeStructure(child, childIndent);
+  });
+}
+
+window.prettyPrint = printTreeStructure;
+
 window.createBoard = GameBoard;
 window.myBoard = GameBoard();
 
