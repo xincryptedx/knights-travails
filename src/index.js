@@ -34,3 +34,6 @@ window.getMoveTree = KnightMoves;
 window.myMoveTree = KnightMoves([1, 0], window.myBoard);
 
 window.bfs = bfsPath;
+console.log("Path from [1, 0] to [4,4]:");
+window.path1 = bfsPath(window.myMoveTree, "position", [4, 4]);
+console.log(window.path1);
