@@ -1,7 +1,7 @@
 import "./style.css";
 import GameBoard from "./gameBoard";
 import KnightMoves from "./getKnightMoves";
-import bfs from "./breadthFirstSearch";
+import bfsPath from "./bfsPath";
 
 // Output the shortest path
 /* Output array of all positions visited along shortest path
@@ -33,4 +33,4 @@ window.myBoard = GameBoard();
 window.getMoveTree = KnightMoves;
 window.myMoveTree = KnightMoves([1, 0], window.myBoard);
 
-window.bfs = bfs;
+window.bfs = bfsPath;

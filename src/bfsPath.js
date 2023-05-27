@@ -12,7 +12,7 @@ const arraysContainSameElements = (arr1, arr2) => {
   return true;
 };
 
-const bfs = (root, propName, targetValue) => {
+const bfsPath = (root, propName, targetValue, visitedNodes = [root]) => {
   // Valiate root
   if (!root || typeof root !== "object") return undefined;
   // Create a queue and add the root node
@@ -22,8 +22,9 @@ const bfs = (root, propName, targetValue) => {
     // Get the children of the first object in q
     Object.keys(q[0]).forEach((key) => {
       if (key !== propName) {
-        // If key is for a child node, add it to queue
+        // If key is for a child node, add it to queue and visited nodes
         q.push(q[0][key]);
+        visitedNodes.push(q[0][key]);
       }
     });
     // If the target value is found at the node, return that node
@@ -36,4 +37,4 @@ const bfs = (root, propName, targetValue) => {
   return null;
 };
 
-export default bfs;
+export default bfsPath;
