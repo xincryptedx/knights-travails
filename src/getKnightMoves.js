@@ -37,13 +37,25 @@ const isMoveValid = (move, position, board) => {
   ) {
     return false;
   }
-  // Else return true
-  return true;
+  // Else return the valid move
+  return endPosition;
 };
 
 const buildMoveTreeRecursively = (currentNode, board) => {
   // Check that moves from position land invalid areas
-  // If that move is valid, add a reference to it to current node and getKnightMoves from it
+  Object.keys(knightMoves).forEach((key) => {
+    // If that move is valid, add a reference to it to current node and getKnightMoves from it
+    const validatedMove = isMoveValid(
+      knightMoves[key],
+      currentNode.position,
+      board
+    );
+    if (validatedMove) {
+      const node = currentNode;
+      node[key] = MoveNode(validatedMove);
+      buildMoveTreeRecursively(node[key], board);
+    }
+  });
 };
 
 const buildKnightMoveTree = (position, board) => {
@@ -53,3 +65,5 @@ const buildKnightMoveTree = (position, board) => {
   // Return root of tree
   return rootNode;
 };
+
+export default buildKnightMoveTree;
