@@ -12,11 +12,13 @@ const arraysContainSameElements = (arr1, arr2) => {
   return true;
 };
 
-const bfsPath = (root, propName, targetValue, visitedNodes = [root]) => {
+const bfsPath = (root, propName, targetValue) => {
   // Valiate root
   if (!root || typeof root !== "object") return undefined;
   // Create a queue and add the root node
   const q = [root];
+  // Create visited nodes array and initialize it with root since we start there
+  const visitedNodes = [root];
   // Search through the nodes
   while (q.length > 0) {
     // Get the children of the first object in q
@@ -24,12 +26,13 @@ const bfsPath = (root, propName, targetValue, visitedNodes = [root]) => {
       if (key !== propName) {
         // If key is for a child node, add it to queue and visited nodes
         q.push(q[0][key]);
-        visitedNodes.push(q[0][key]);
       }
     });
-    // If the target value is found at the node, return that node
+    // Add the node at the front of the queue to the visited nodes array
+    visitedNodes.push(q[0]);
+    // If the target value is found at the node, return visited nodes
     if (arraysContainSameElements(q[0][propName], targetValue)) {
-      return q[0];
+      return visitedNodes;
     }
     // Remove the first item in the queue
     q.shift();
