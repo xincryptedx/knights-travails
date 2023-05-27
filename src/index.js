@@ -1,5 +1,6 @@
 import "./style.css";
 import GameBoard from "./gameBoard";
+import KnightMoves from "./getKnightMoves";
 
 // Use BFS to find shortest path to target while tracking explored nodes (queue system needed)
 /* -Create a queue to store the positions to be explored.
@@ -22,3 +23,4 @@ import GameBoard from "./gameBoard";
 
 // Testing in browser stuff
 window.createBoard = GameBoard;
+window.getMoveTree = KnightMoves;
