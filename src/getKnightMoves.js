@@ -73,7 +73,7 @@ const buildKnightMoveTree = (position, board) => {
   // Create root node that stores postion value
   const rootNode = MoveNode(position);
   // Create array to store visited positions
-  const visitedSpots = [rootNode];
+  const visitedSpots = [board[rootNode.position[0]][rootNode.position[1]]];
   console.log(`Building tree off root node:`);
   console.log(rootNode);
   buildMoveTreeRecursively(rootNode, board, visitedSpots);
