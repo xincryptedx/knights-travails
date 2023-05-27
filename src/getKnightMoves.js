@@ -51,6 +51,8 @@ const isMoveValid = (move, currentNode, board, visitedSpots) => {
 };
 
 const buildMoveTreeRecursively = (currentNode, board, visitedSpots) => {
+  // Give currentNode param a function scoped reference
+  const node = currentNode;
   // Check that moves from position land invalid areas
   Object.keys(knightMoves).forEach((key) => {
     // If that move is valid, add a reference to it to current node and getKnightMoves from it
@@ -63,8 +65,12 @@ const buildMoveTreeRecursively = (currentNode, board, visitedSpots) => {
     if (validatedMove) {
       console.log(`Checking move: ${key}... Validated move: ${validatedMove}`);
       const newChildNode = MoveNode(validatedMove);
-      currentNode[key] = newChildNode;
-      buildMoveTreeRecursively(newChildNode, board, visitedSpots);
+      node[key] = newChildNode;
+    }
+  });
+  Object.keys(node).forEach((key) => {
+    if (Object.keys(knightMoves).includes(key)) {
+      buildMoveTreeRecursively(node[key], board, visitedSpots);
     }
   });
 };
