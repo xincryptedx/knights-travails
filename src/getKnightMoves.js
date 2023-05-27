@@ -23,7 +23,7 @@ const MoveNode = (position = null) => {
   return newMove;
 };
 
-const isMoveValid = (move, currentNode, board, visitedNodes) => {
+const isMoveValid = (move, currentNode, board, visitedSpots) => {
   // "Do the move" to get end position
   const endPosition = [
     currentNode.position[0] + move[0],
@@ -42,15 +42,15 @@ const isMoveValid = (move, currentNode, board, visitedNodes) => {
   }
   // Return null if node already visited
   const nodeToVisit = board[endPosition[0]][endPosition[1]];
-  if (visitedNodes.includes(nodeToVisit)) {
+  if (visitedSpots.includes(nodeToVisit)) {
     return null;
   }
   // Else return the valid move and add it to visited nodes
-  visitedNodes.push(nodeToVisit);
+  visitedSpots.push(nodeToVisit);
   return endPosition;
 };
 
-const buildMoveTreeRecursively = (currentNode, board, visitedNodes) => {
+const buildMoveTreeRecursively = (currentNode, board, visitedSpots) => {
   // Check that moves from position land invalid areas
   Object.keys(knightMoves).forEach((key) => {
     // If that move is valid, add a reference to it to current node and getKnightMoves from it
@@ -58,15 +58,13 @@ const buildMoveTreeRecursively = (currentNode, board, visitedNodes) => {
       knightMoves[key],
       currentNode,
       board,
-      visitedNodes
-    );
-    console.log(
-      `Checking move: ${knightMoves[key]}... Validated move: ${validatedMove}`
+      visitedSpots
     );
     if (validatedMove) {
+      console.log(`Checking move: ${key}... Validated move: ${validatedMove}`);
       const newChildNode = MoveNode(validatedMove);
       currentNode[key] = newChildNode;
-      buildMoveTreeRecursively(newChildNode, board, visitedNodes);
+      buildMoveTreeRecursively(newChildNode, board, visitedSpots);
     }
   });
 };
@@ -75,10 +73,10 @@ const buildKnightMoveTree = (position, board) => {
   // Create root node that stores postion value
   const rootNode = MoveNode(position);
   // Create array to store visited positions
-  const visitedNodes = [];
+  const visitedSpots = [rootNode];
   console.log(`Building tree off root node:`);
   console.log(rootNode);
-  buildMoveTreeRecursively(rootNode, board, visitedNodes);
+  buildMoveTreeRecursively(rootNode, board, visitedSpots);
   // Return root of tree
   return rootNode;
 };
