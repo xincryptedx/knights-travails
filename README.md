@@ -6,6 +6,6 @@ This repository contains code for solving the problem of determining the shortes
 
 The solution provided in this repository is based on a breadth-first search (BFS) algorithm to explore all possible moves and find the shortest path. The implementation consists of the following components:
 
-- `knightMoves.js`: Defines the possible moves a knight can make on the chessboard.
-- `buildKnightMoveTree.js`: Builds a tree structure representing all possible moves and paths from a given starting position.
+- `gameBoard.js`: Builds a game board of arbitrary size from 2x2 - 100x100 with a default size of 8x8.
+- `getKnightMoves.js`: Builds a tree structure representing all possible moves and paths from a given starting position.
 - `bfsPath.js`: Performs a breadth-first search to find the shortest path from the starting position to a target position.
