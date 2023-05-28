@@ -1,6 +1,6 @@
 # Knight's Trevails
 
-This repository contains code for solving the problem of determining the shortest path a Knight can take from a given spot on a gameboard to another given spot.
+This repository contains code for solving the problem of determining the shortest path a Knight can take from a given spot on a game board to another given spot.
 
 ## Implementation
 
